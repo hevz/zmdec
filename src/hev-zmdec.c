@@ -156,7 +156,7 @@ static gboolean hev_zmdec_ui_init(HevZmDec * self)
 	{
 		GtkWidget * vbox = NULL;
 
-		vbox = gtk_vbox_new(FALSE, 0);
+		vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 		gtk_container_set_border_width(GTK_CONTAINER(vbox), 4);
 		gtk_container_add(GTK_CONTAINER(priv->main_window), vbox);
 
@@ -164,7 +164,7 @@ static gboolean hev_zmdec_ui_init(HevZmDec * self)
 		{
 			GtkWidget * hbox = NULL;
 
-			hbox = gtk_hbox_new(FALSE, 0);
+			hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 			gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 
 			/* keyword entry START */

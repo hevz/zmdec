@@ -2,8 +2,8 @@
  
 PP=cpp
 CC=gcc
-CCFLAGS=-O2 `pkg-config --cflags gtk+-2.0 sqlite3`
-LDFLAGS=`pkg-config --libs gtk+-2.0 sqlite3`
+CCFLAGS=-O2 `pkg-config --cflags gtk+-3.0 sqlite3`
+LDFLAGS=`pkg-config --libs gtk+-3.0 sqlite3`
  
 SRCDIR=src
 BINDIR=bin
