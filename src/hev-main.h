@@ -11,4 +11,6 @@
 #ifndef __HEV_MAIN_H__
 #define __HEV_MAIN_H__
 
+gchar * hev_build_res_path(const gchar *res);
+
 #endif /* __HEV_MAIN_H__ */

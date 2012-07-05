@@ -12,6 +12,7 @@
 #include <sqlite3.h>
 
 #include "hev-zmquery.h"
+#include "hev-main.h"
 
 #define HEV_ZMQUERY_DB_FILE_PATH		"./res/zhengma.db"
 
@@ -97,8 +98,12 @@ static gboolean hev_zmquery_initable_init(GInitable * initable,
 	/* sqlite_db START */
 	{
 		int rc = 0;
+		gchar *path = NULL;
 
-		rc = sqlite3_open(HEV_ZMQUERY_DB_FILE_PATH, &priv->sqlite_db);
+		path = hev_build_res_path(HEV_ZMQUERY_DB_FILE_PATH);
+
+		rc = sqlite3_open(path, &priv->sqlite_db);
+		g_free(path);
 		if(rc)
 		{
 			g_critical("Open db file failed!");

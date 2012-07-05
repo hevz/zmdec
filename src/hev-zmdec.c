@@ -12,6 +12,7 @@
 
 #include "hev-zmdec.h"
 #include "hev-zmquery.h"
+#include "hev-main.h"
 
 enum
 {
@@ -137,18 +138,23 @@ static gboolean hev_zmdec_ui_init(HevZmDec * self)
 
 	/* main window START */
 	{
+		gchar *path = NULL;
+
 		priv->main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 		if(FALSE == GTK_IS_WINDOW(priv->main_window))
 		{
 			return FALSE;
 		}
 
+		path = hev_build_res_path("./res/zhengma.svg");
+
 		gtk_window_set_title(GTK_WINDOW(priv->main_window), "郑码查询器");
-		gtk_window_set_icon_from_file(GTK_WINDOW(priv->main_window), "./res/zhengma.svg", NULL);
+		gtk_window_set_icon_from_file(GTK_WINDOW(priv->main_window), path, NULL);
 		gtk_window_resize(GTK_WINDOW(priv->main_window), 400, 280);
 		gtk_window_set_position(GTK_WINDOW(priv->main_window), GTK_WIN_POS_CENTER_ALWAYS);
 		g_signal_connect(G_OBJECT(priv->main_window), "destroy",
 				G_CALLBACK(gtk_main_quit), NULL);
+		g_free(path);
 	}
 	/* main window END */
 
